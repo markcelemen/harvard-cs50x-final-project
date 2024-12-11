@@ -1,5 +1,5 @@
 # Library Management System
-#### Video Demo: https://youtu.be/XSQu170efb4
+#### Video Demo: 
 
 #### Description:
 Hello, my name is **Mark Edrian D. Celemen**, and this is my final project for CS50x, titled **Library Management System**. This project is designed to help manage a library's data, including tracking books, authors, publishers, borrowers, and borrow records in a simulated fashion. It also allows the library staff to manage transactions such as adding, updating, or deleting records, as well as generating reports for analysis. 
