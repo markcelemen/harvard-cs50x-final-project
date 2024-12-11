@@ -19,7 +19,7 @@ Here’s a brief overview of the tables included in the database:
 
 Below is a screenshot of the **Library Management System Database Model**:
 
-![Library Management System Database Model](LibraryManagementSystem%20DB%20Model.png)
+![Library Management System Database Model](images/LibraryManagementSystem%20DB%20Model.png)
 
 ### Creating and Populating the Database
 After designing the database schema, I created the database and populated it with random data to simulate a real-world scenario.
@@ -29,14 +29,14 @@ The database was created using SQL scripts in the CS50x IDE, and I made sure to 
 
 Here’s a screenshot of the **Creating the Database** process:
 
-![Creating the Database](creating%20the%20database.png)
+![Creating the Database](images/creating%20the%20database.png)
 
 **Populating the Database**:
 Next, I populated the database with sample data to demonstrate the functionality of the system. This included adding entries for authors, publishers, books, borrowers, and borrow records.
 
 Here’s a screenshot of the **Populating the Database** process:
 
-![Populating the Database](populating%20the%20database.png)
+![Populating the Database](images/populating%20the%20database.png)
 
 ### Running the Project
 This project was developed on the **CS50x IDE**, so it is recommended to run it within that environment for optimal performance. However, you can also run the project locally with a few modifications, such as setting up an SQLite database and installing the necessary dependencies.
@@ -52,28 +52,28 @@ The Library Management System has three main parts: **Records Management**, **Tr
 
 Here’s a screenshot of the **Index** page:
 
-![Index Page](index.png)
+![Index Page](images/index.png)
 
 #### 1. Records Management
 The records management section allows users to view the data for each table in the database. It provides an interface where the library staff can view the list of authors, books, borrowers, and other relevant data stored in the database.
 
 Here’s a screenshot of the **Records Management** page:
 
-![Records Management](records.png)
+![Records Management](images/records.png)
 
 #### 2. Transactions
 The transactions section enables users to perform actions such as adding, deleting, or updating records in the database. This feature makes it easy for the library staff to maintain accurate data on books, borrowers, and borrow records. For example, a library staff member can mark a book as borrowed, update borrow return dates, or remove outdated records.
 
 Here’s a screenshot of the **Transactions** page:
 
-![Transactions](transactions.png)
+![Transactions](images/transactions.png)
 
 #### 3. Reports
 The reports section generates lists of the **Top 10 Most Borrowed Books** and the **Top 10 Borrowers** who have borrowed the most books. These reports can be used by library staff to analyze borrowing patterns and identify the most popular books and borrowers.
 
 Here’s a screenshot of the **Reports** page:
 
-![Reports](reports.png)
+![Reports](images/reports.png)
 
 ### Design Choices
 When designing this system, I made several key decisions to ensure that it would be both efficient and user-friendly:
