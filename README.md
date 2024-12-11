@@ -2,7 +2,7 @@
 #### Video Demo: https://youtu.be/XSQu170efb4
 
 #### Description:
-Hello, my name is **Mark Edrian D. Celemen**, and this is my final project for CS50x, titled **Library Management System**. This project is designed to help manage a library's data, including tracking books, authors, publishers, borrowers, and borrow records. It also allows the library staff to manage transactions such as adding, updating, or deleting records, as well as generating reports for analysis. 
+Hello, my name is **Mark Edrian D. Celemen**, and this is my final project for CS50x, titled **Library Management System**. This project is designed to help manage a library's data, including tracking books, authors, publishers, borrowers, and borrow records in a simulated fashion. It also allows the library staff to manage transactions such as adding, updating, or deleting records, as well as generating reports for analysis. 
 
 The core of the project is built upon a relational database that tracks the various entities related to the library’s operations. I started with the design and creation of the database schema, followed by populating it with random data to demonstrate the system's functionality. The project is implemented in Python using the **Flask** framework and is designed to be run on the CS50x IDE.
 
