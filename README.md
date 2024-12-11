@@ -80,7 +80,7 @@ When designing this system, I made several key decisions to ensure that it would
 
 - **Relational Database**: I chose to use a relational database with foreign keys to ensure that the data was normalized and could be efficiently queried. This design choice also ensures data integrity and prevents redundancy.
 - **Flask Framework**: I decided to use Flask because it is a lightweight and flexible web framework that is easy to learn and ideal for small to medium-sized projects like this one. It allows me to focus on building the core features of the system without needing to worry about complex configurations.
-- **Reports Section**: I included the reports feature to provide insights into the library’s usage and help with decision-making. By analyzing the top borrowed books and borrowers, library staff can make informed decisions about inventory and promotions.
+- **Reports Section**: I included the reports feature to provide insights into the library’s usage and help with decision-making.
 
 ### Conclusion
 The **Library Management System** project is a comprehensive application that provides an easy-to-use interface for managing books, borrowers, and transactions. With its database-backed design and user-friendly features, it can be a valuable tool for any library. The project showcases my understanding of SQL, Python, and web development, and I’m proud of how it turned out.
