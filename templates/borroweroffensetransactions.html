@@ -1,0 +1,87 @@
+{% extends "transactions.html" %}
+
+{% block title %}
+Borrower Offenses
+{% endblock %}
+
+{% block main %}
+    <h3>Add a Borrower Offense</h3>
+    <form action="add_borroweroffense" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrower ID:
+                <select name="borrower_id">
+                    <option disabled selected>Select</option>
+                    {% for borrower_id in unique_borrower_ids %}
+                        <option value="{{ borrower_id.borrower_id }}">{{ borrower_id.borrower_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Offense Date: <input autocomplete="off" name="offense_date" type="date"></label>
+            <label>Offense Description: <input autocomplete="off" name="offense_description" type="text"></label>
+        </div>
+        <button type="submit">Add Borrower Offense</button>
+    </form>
+
+    <h3>Delete a Borrower Offense</h3>
+    <form action="delete_borroweroffense" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrow Offense:
+                <select name="offense_id">
+                    <option disabled selected>Select</option>
+                    {% for borroweroffense in borroweroffenses %}
+                        <option value="{{ borroweroffense.offense_id }}">{{ borroweroffense.offense_id }} - Offense Date: {{ borroweroffense.offense_date }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Delete Borrower Offense</button>
+    </form>
+
+    <h3>Update a Borrower Offense</h3>
+    <form action="update_borroweroffense" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrow Offense:
+                <select name="offense_id">
+                    <option disabled selected>Select</option>
+                    {% for borroweroffense in borroweroffenses %}
+                        <option value="{{ borroweroffense.offense_id }}">{{ borroweroffense.offense_id }} - Offense Date: {{ borroweroffense.offense_date }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Borrower ID:
+                <select name="borrower_id">
+                    <option disabled selected>Select</option>
+                    {% for borrower_id in unique_borrower_ids %}
+                        <option value="{{ borrower_id.borrower_id }}">{{ borrower_id.borrower_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Offense Date: <input autocomplete="off" name="offense_date" type="date"></label>
+            <label>Offense Description: <input autocomplete="off" name="offense_description" type="text"></label>
+        </div>
+        <button type="submit">Update Borrower Offense</button>
+    </form>
+
+    <!-- Borrower Offenses Table -->
+    <h3>Borrower Offenses Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Offense ID</th>
+                <th>Borrower ID</th>
+                <th>Offense Date</th>
+                <th>Offense Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borroweroffense in borroweroffenses %}
+                <tr>
+                    <td>{{ borroweroffense.offense_id }}</td>
+                    <td>{{ borroweroffense.borrower_id }}</td>
+                    <td>{{ borroweroffense.offense_date }}</td>
+                    <td>{{ borroweroffense.offense_description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

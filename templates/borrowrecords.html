@@ -1,0 +1,55 @@
+{% extends "records.html" %}
+
+{% block title %}
+Borrow Records Table
+{% endblock %}
+
+{% block main %}
+    <!-- Form Section -->
+    <h3>Search for Borrow Records</h3>
+    <form action="/borrowrecords" method="POST" class="form">
+        <div class="form-row">
+            <label>Record ID: <input autocomplete="off" min="1" name="record_id" type="number"></label>
+            <label>Book ID: <input autocomplete="off" name="book_id" type="number"></label>
+            <label>Date Borrowed: <input autocomplete="off" name="date_borrowed" type="date"></label>
+        </div>
+        <div class="form-row">
+            <label>Expected Return Date: <input autocomplete="off" name="date_expected_returned" type="date"></label>
+            <label>Actual Return Date: <input autocomplete="off" name="date_actual_returned" type="date"></label>
+            <label>Late Fees Collected: <input autocomplete="off" name="late_fees_collected" step="0.01" min="0" type="number"></label>
+        </div>
+        <div class="form-row">
+            <label>Borrower ID: <input autocomplete="off" name="borrower_id" type="number"></label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Borrow Records Table -->
+    <h3>Borrow Records Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Record ID</th>
+                <th>Book ID</th>
+                <th>Date Borrowed</th>
+                <th>Expected Return Date</th>
+                <th>Actual Return Date</th>
+                <th>Late Fees Collected</th>
+                <th>Borrower ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borrowrecord in borrowrecords %}
+                <tr>
+                    <td>{{ borrowrecord.record_id }}</td>
+                    <td>{{ borrowrecord.book_id }}</td>
+                    <td>{{ borrowrecord.date_borrowed }}</td>
+                    <td>{{ borrowrecord.date_expected_returned }}</td>
+                    <td>{{ borrowrecord.date_actual_returned }}</td>
+                    <td>{{ borrowrecord.late_fees_collected }}</td>
+                    <td>{{ borrowrecord.borrower_id }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

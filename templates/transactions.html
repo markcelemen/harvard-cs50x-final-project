@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Transactions</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Transactions: {% block title %}{% endblock %}</h1>
+        </div>
+
+        <div class="container">
+            <nav class="nav-links">
+                <a href="/authortransactions">Authors</a>
+                <a href="/publishertransactions">Publishers</a>
+                <a href="/booktransactions">Books</a>
+                <a href="/borrowertransactions">Borrowers</a>
+                <a href="/borrowrecordtransactions">Borrow Records</a>
+                <a href="/borroweroffensetransactions">Borrower Offenses</a>
+                <a href="/">Home</a>
+            </nav>
+
+            <main>
+                {% block main %} {% endblock %}
+            </main>
+        </div>
+    </body>
+</html>

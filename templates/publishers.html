@@ -1,0 +1,54 @@
+{% extends "records.html" %}
+
+{% block title %}
+Publishers Table
+{% endblock %}
+
+{% block main %}
+    <!-- Form Section -->
+    <h3>Search for Publishers</h3>
+    <form action="/publishers" method="POST" class="form">
+        <div class="form-row">
+            <label>Publisher ID:
+                <input autocomplete="off" min="1" name="publisher_id" type="number">
+            </label>
+            <label>Publisher Name:
+                <input autocomplete="off" maxlength="50" name="publisher_name" type="text">
+            </label>
+            <label>Address:
+                <input autocomplete="off" maxlength="100" name="address" type="text">
+            </label>
+            <label>Email Address:
+                <input autocomplete="off" maxlength="50" name="email_address" type="email">
+            </label>
+            <label>Mobile Number:
+                <input autocomplete="off" maxlength="20" name="mobile_no" type="text">
+            </label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Publishers Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Publisher ID</th>
+                <th>Publisher Name</th>
+                <th>Address</th>
+                <th>Email Address</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for publisher in publishers %}
+                <tr>
+                    <td>{{ publisher.publisher_id }}</td>
+                    <td>{{ publisher.publisher_name }}</td>
+                    <td>{{ publisher.address }}</td>
+                    <td>{{ publisher.email_address }}</td>
+                    <td>{{ publisher.mobile_no }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

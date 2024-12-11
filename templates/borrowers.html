@@ -1,0 +1,49 @@
+{% extends "records.html" %}
+
+{% block title %}
+Borrowers Table
+{% endblock %}
+
+{% block main %}
+    <!-- Form Section -->
+    <h3>Search for Borrowers</h3>
+    <form action="/borrowers" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrower ID: <input autocomplete="off" min="1" name="borrower_id" type="number"></label>
+            <label>First Name: <input autocomplete="off" maxlength="50" name="first_name" type="text"></label>
+            <label>Middle Initial: <input autocomplete="off" maxlength="1" pattern="[A-Za-z]" name="middle_initial" type="text"></label>
+        </div>
+        <div class="form-row">
+            <label>Last Name: <input autocomplete="off" maxlength="50" name="last_name" type="text"></label>
+            <label>Email Address: <input autocomplete="off" maxlength="50" name="email_address" type="text"></label>
+            <label>Mobile Number: <input autocomplete="off" maxlength="20" name="mobile_no" type="text"></label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Borrowers Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Borrower ID</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borrower in borrowers %}
+                <tr>
+                    <td>{{ borrower.borrower_id }}</td>
+                    <td>{{ borrower.first_name }}</td>
+                    <td>{{ borrower.middle_initial }}</td>
+                    <td>{{ borrower.last_name }}</td>
+                    <td>{{ borrower.email_address }}</td>
+                    <td>{{ borrower.mobile_no }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

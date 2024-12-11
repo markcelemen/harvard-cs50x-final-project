@@ -1,0 +1,91 @@
+{% extends "transactions.html" %}
+
+{% block title %}
+    Authors
+{% endblock %}
+
+{% block main %}
+    <h3>Add an Author</h3>
+    <form action="/add_author" method="POST" class="form">
+        <div class="form-row">
+            <label>First Name: <input autocomplete="off" maxlength="50" name="first_name" type="text"></label>
+            <label>Middle Initial: <input autocomplete="off" maxlength="1" pattern="[A-Za-z]" name="middle_initial" type="text"></label>
+            <label>Last Name: <input autocomplete="off" maxlength="50" name="last_name" type="text"></label>
+        </div>
+        <div class="form-row">
+            <label>Alias: <input autocomplete="off" maxlength="50" name="alias" type="text"></label>
+            <label>Email Address: <input autocomplete="off" maxlength="50" name="email_address" type="email"></label>
+            <label>Mobile Number: <input autocomplete="off" maxlength="20" name="mobile_no" type="text"></label>
+        </div>
+        <button type="submit">Add Author</button>
+    </form>
+
+    <h3>Delete an Author</h3>
+    <form action="/delete_author" method="POST" class="form">
+        <div class="form-row">
+            <label>Author:
+                <select name="author_id">
+                    <option disabled selected>Select</option>
+                    {% for author in authors %}
+                        <option value="{{ author.author_id }}">{{ author.author_id }} - {{ author.first_name }} {{ author.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Delete Author</button>
+    </form>
+
+    <h3>Update an Author</h3>
+    <form action="/update_author" method="POST" class="form">
+        <div class="form-row">
+            <label>Author:
+                <select name="author_id">
+                    <option disabled selected>Select</option>
+                    {% for author in authors %}
+                        <option value="{{ author.author_id }}">{{ author.author_id }} - {{ author.first_name }} {{ author.last_name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>First Name: <input autocomplete="off" maxlength="50" name="first_name" type="text"></label>
+            <label>Middle Initial: <input autocomplete="off" maxlength="1" pattern="[A-Za-z]" name="middle_initial" type="text"></label>
+            <label>Last Name: <input autocomplete="off" maxlength="50" name="last_name" type="text"></label>
+        </div>
+        <div class="form-row">
+            <label>Alias: <input autocomplete="off" maxlength="50" name="alias" type="text"></label>
+            <label>Email Address: <input autocomplete="off" maxlength="50" name="email_address" type="email"></label>
+            <label>Mobile Number: <input autocomplete="off" maxlength="20" name="mobile_no" type="text"></label>
+        </div>
+        <button type="submit">Update Author</button>
+    </form>
+
+    <!-- Authors Table -->
+    <h3>Authors Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Author ID</th>
+                <th>First Name</th>
+                <th>Middle Initial</th>
+                <th>Last Name</th>
+                <th>Alias</th>
+                <th>Email Address</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.author_id }}</td>
+                    <td>{{ author.first_name }}</td>
+                    <td>{{ author.middle_initial }}</td>
+                    <td>{{ author.last_name }}</td>
+                    <td>{{ author.alias }}</td>
+                    <td>{{ author.email_address }}</td>
+                    <td>{{ author.mobile_no }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

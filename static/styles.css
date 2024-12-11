@@ -1,0 +1,228 @@
+/* General Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+.header {
+    background-color: #005f73;
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Navigation Styling */
+.nav-links {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}
+
+.nav-links a {
+    font-size: 1.1em;
+    color: #0077b6;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+
+.nav-links a:hover {
+    background-color: #0077b6;
+    color: white;
+}
+
+.nav-links a.active {
+    background-color: #005f73;
+    color: white;
+}
+
+/* Container Styling */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+.container h2 {
+    font-size: 1.8em;
+    color: #005f73;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.container ul li {
+    margin: 15px 0;
+}
+
+.container ul li a {
+    font-size: 1.2em;
+    color: #0077b6;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container ul li a:hover {
+    background-color: #0077b6;
+    color: white;
+}
+
+/* Main Content Area */
+main {
+    margin-top: 30px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #005f73;
+    color: white;
+    font-size: 1.1em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* Button Styling */
+button {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f73;
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-row label {
+    flex: 1 1 18%;
+}
+
+.form-row select,
+.form-row input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Container */
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    /* Header */
+    .header h1 {
+        font-size: 2em;
+    }
+
+    /* Section */
+    .container h2 {
+        font-size: 1.5em;
+    }
+
+    /* List Items */
+    .container ul li {
+        font-size: 1.1em;
+    }
+
+    /* Navigation */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+        padding: 8px 15px;
+        margin: 5px 0;
+    }
+
+    /* Table */
+    table th, table td {
+        padding: 10px;
+    }
+
+    table th {
+        font-size: 1em;
+    }
+
+    /* Form */
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row label {
+        flex: none;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Reports</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Reports: {% block title %}{% endblock %}</h1>
+        </div>
+
+        <div class="container">
+            <nav class="nav-links">
+                <a href="top_books">Top 10 Books</a>
+                <a href="top_borrowers">Top 10 Borrowers</a>
+                <a href="/">Home</a>
+            </nav>
+
+            <main>
+                {% block main %} {% endblock %}
+            </main>
+        </div>
+    </body>
+</html>

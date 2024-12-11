@@ -1,0 +1,78 @@
+{% extends "transactions.html" %}
+
+{% block title %}
+  Publishers
+{% endblock %}
+
+{% block main %}
+    <h3>Add a Publisher</h3>
+    <form action="add_publisher" method="POST" class="form">
+        <div class="form-row">
+            <label>Publisher Name: <input autocomplete="off" maxlength="50" name="publisher_name" type="text"></label>
+            <label>Address: <input autocomplete="off" maxlength="100" name="address" type="text"></label>
+            <label>Email Address: <input autocomplete="off" maxlength="50" name="email_address" type="text"></label>
+            <label>Mobile Number: <input autocomplete="off" maxlength="20" name="mobile_no" type="text"></label>
+        </div>
+        <button type="submit">Add Publisher</button>
+    </form>
+
+    <h3>Delete a Publisher</h3>
+    <form action="delete_publisher" method="POST" class="form">
+        <div class="form-row">
+            <label>Publisher:
+                <select name="publisher_id">
+                    <option disabled selected>Select</option>
+                    {% for publisher in publishers %}
+                        <option value="{{ publisher.publisher_id }}">{{ publisher.publisher_id }} - {{ publisher.publisher_name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Delete Publisher</button>
+    </form>
+
+    <h3>Update a Publisher</h3>
+    <form action="update_publisher" method="POST" class="form">
+        <div class="form-row">
+            <label>Publisher:
+                <select name="publisher_id">
+                    <option disabled selected>Select</option>
+                    {% for publisher in publishers %}
+                        <option value="{{ publisher.publisher_id }}">{{ publisher.publisher_id }} - {{ publisher.publisher_name }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <div class="form-row">
+            <label>Publisher Name: <input autocomplete="off" maxlength="50" name="publisher_name" type="text"></label>
+            <label>Address: <input autocomplete="off" maxlength="100" name="address" type="text"></label>
+            <label>Email Address: <input autocomplete="off" maxlength="50" name="email_address" type="text"></label>
+            <label>Mobile Number: <input autocomplete="off" maxlength="20" name="mobile_no" type="text"></label>
+        </div>
+        <button type="submit">Update Publisher</button>
+    </form>
+
+    <h3>Publishers Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Publisher ID</th>
+                <th>Publisher Name</th>
+                <th>Address</th>
+                <th>Email Address</th>
+                <th>Mobile Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for publisher in publishers %}
+                <tr>
+                    <td>{{ publisher.publisher_id }}</td>
+                    <td>{{ publisher.publisher_name }}</td>
+                    <td>{{ publisher.address }}</td>
+                    <td>{{ publisher.email_address }}</td>
+                    <td>{{ publisher.mobile_no }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

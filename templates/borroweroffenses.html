@@ -1,0 +1,44 @@
+{% extends "records.html" %}
+
+{% block title %}
+Borrower Offenses Table
+{% endblock %}
+
+{% block main %}
+    <!-- Form Section -->
+    <h3>Search Borrower Offenses</h3>
+    <form action="/borroweroffenses" method="POST" class="form">
+        <div class="form-row">
+            <label>Offense ID: <input autocomplete="off" min="1" name="offense_id" type="number"></label>
+            <label>Borrower ID: <input autocomplete="off" name="borrower_id" type="number"></label>
+            <label>Offense Date: <input autocomplete="off" name="offense_date" type="date"></label>
+        </div>
+        <div class="form-row">
+            <label>Offense Description: <input autocomplete="off" name="offense_description" type="text"></label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Borrower Offenses Table -->
+    <h3>Borrower Offenses Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Offense ID</th>
+                <th>Borrower ID</th>
+                <th>Offense Date</th>
+                <th>Offense Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borroweroffense in borroweroffenses %}
+                <tr>
+                    <td>{{ borroweroffense.offense_id }}</td>
+                    <td>{{ borroweroffense.borrower_id }}</td>
+                    <td>{{ borroweroffense.offense_date }}</td>
+                    <td>{{ borroweroffense.offense_description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

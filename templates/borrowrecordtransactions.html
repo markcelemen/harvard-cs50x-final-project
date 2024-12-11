@@ -1,0 +1,118 @@
+{% extends "transactions.html" %}
+
+{% block title %}
+ Borrow Records
+{% endblock %}
+
+{% block main %}
+    <h3>Add a Borrow Record</h3>
+    <form action="add_borrowrecord" method="POST" class="form">
+        <div class="form-row">
+            <label>Book ID:
+                <select name="book_id">
+                    <option disabled selected>Select</option>
+                    {% for book in unique_book_ids %}
+                        <option value="{{ book.book_id }}">{{ book.book_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Date Borrowed: <input autocomplete="off" name="date_borrowed" type="date"></label>
+            <label>Expected Return Date: <input autocomplete="off" name="date_expected_returned" type="date"></label>
+        </div>
+        <div class="form-row">
+            <label>Actual Return Date: <input autocomplete="off" name="date_actual_returned" type="date"></label>
+            <label>Late Fees Collected: <input autocomplete="off" name="late_fees_collected" step="0.01" min="0" type="number"></label>
+            <label>Borrower ID:
+                <select name="borrower_id">
+                    <option disabled selected>Select</option>
+                    {% for borrower in unique_borrower_ids %}
+                        <option value="{{ borrower.borrower_id }}">{{ borrower.borrower_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Add Borrow Record</button>
+    </form>
+
+    <h3>Delete a Borrow Record</h3>
+    <form action="delete_borrowrecord" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrow Record:
+                <select name="record_id">
+                    <option disabled selected>Select</option>
+                    {% for borrowrecord in borrowrecords %}
+                        <option value="{{ borrowrecord.record_id }}">{{ borrowrecord.record_id }} - Date Borrowed: {{ borrowrecord.date_borrowed }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Delete Borrow Record</button>
+    </form>
+
+    <h3>Update a Borrow Record</h3>
+    <form action="update_borrowrecord" method="POST" class="form">
+        <div class="form-row">
+            <label>Borrow Record:
+                <select name="record_id">
+                    <option disabled selected>Select</option>
+                    {% for borrowrecord in borrowrecords %}
+                        <option value="{{ borrowrecord.record_id }}">{{ borrowrecord.record_id }} - Date Borrowed: {{ borrowrecord.date_borrowed }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Book ID:
+                <select name="book_id">
+                    <option disabled selected>Select</option>
+                    {% for book in unique_book_ids %}
+                        <option value="{{ book.book_id }}">{{ book.book_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+            <label>Date Borrowed: <input autocomplete="off" name="date_borrowed" type="date"></label>
+        </div>
+        <div class="form-row">
+            <label>Expected Return Date: <input autocomplete="off" name="date_expected_returned" type="date"></label>
+            <label>Actual Return Date: <input autocomplete="off" name="date_actual_returned" type="date"></label>
+            <label>Late Fees Collected: <input autocomplete="off" name="late_fees_collected" step="0.01" min="0" type="number"></label>
+        </div>
+        <div class="form-row">
+            <label>Borrower ID:
+                <select name="borrower_id">
+                    <option disabled selected>Select</option>
+                    {% for borrower in unique_borrower_ids %}
+                        <option value="{{ borrower.borrower_id }}">{{ borrower.borrower_id }}</option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+        <button type="submit">Update Borrow Record</button>
+    </form>
+
+    <h3>Borrow Records Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Record ID</th>
+                <th>Book ID</th>
+                <th>Date Borrowed</th>
+                <th>Expected Return Date</th>
+                <th>Actual Return Date</th>
+                <th>Late Fees Collected</th>
+                <th>Borrower ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for borrowrecord in borrowrecords %}
+                <tr>
+                    <td>{{ borrowrecord.record_id }}</td>
+                    <td>{{ borrowrecord.book_id }}</td>
+                    <td>{{ borrowrecord.date_borrowed }}</td>
+                    <td>{{ borrowrecord.date_expected_returned }}</td>
+                    <td>{{ borrowrecord.date_actual_returned }}</td>
+                    <td>{{ borrowrecord.late_fees_collected }}</td>
+                    <td>{{ borrowrecord.borrower_id }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

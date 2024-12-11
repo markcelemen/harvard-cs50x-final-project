@@ -1,0 +1,55 @@
+{% extends "records.html" %}
+
+{% block title %}
+Books Table
+{% endblock %}
+
+{% block main %}
+    <!-- Form Section -->
+    <h3>Seach for Books</h3>
+    <form action="/books" method="POST" class="form">
+        <div class="form-row">
+            <label>Book ID: <input autocomplete="off" min="1" name="book_id" type="number"></label>
+            <label>Title: <input autocomplete="off" maxlength="50" name="title" type="text"></label>
+            <label>Publication Year: <input autocomplete="off" name="publication_year" type="number"></label>
+        </div>
+        <div class="form-row">
+            <label>Author ID: <input autocomplete="off" min="1" name="author_id" type="number"></label>
+            <label>Publisher ID: <input autocomplete="off" min="1" name="publisher_id" type="number"></label>
+            <label>Availability Status:
+                <select name="availability_status">
+                    <option disabled selected>Status</option>
+                    <option value="Available">Available</option>
+                    <option value="Unavailable">Unavailable</option>
+                </select>
+            </label>
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- Books Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Publication Year</th>
+                <th>Author ID</th>
+                <th>Publisher ID</th>
+                <th>Availability Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.book_id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.publication_year }}</td>
+                    <td>{{ book.author_id }}</td>
+                    <td>{{ book.publisher_id }}</td>
+                    <td>{{ book.availability_status }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
