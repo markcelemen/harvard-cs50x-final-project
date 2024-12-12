@@ -4,7 +4,7 @@
 
 -- Authors Table
 CREATE TABLE Authors (
-	author_id INT AUTO_INCREMENT PRIMARY KEY,
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50),
     middle_initial CHAR(1),
     last_name VARCHAR(50),
@@ -15,7 +15,7 @@ CREATE TABLE Authors (
 
 -- Publishers Table
 CREATE TABLE Publishers (
-	publisher_id INT AUTO_INCREMENT PRIMARY KEY,
+    publisher_id INT AUTO_INCREMENT PRIMARY KEY,
     publisher_name VARCHAR(50),
     address VARCHAR(100),
     email_address VARCHAR(50),
@@ -24,7 +24,7 @@ CREATE TABLE Publishers (
 
 -- Books Table
 CREATE TABLE Books (
-	book_id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    book_id INT AUTO_INCREMENT UNIQUE PRIMARY KEY,
     title VARCHAR(50),
     publication_year INT,
     publisher_id INT,
@@ -36,7 +36,7 @@ CREATE TABLE Books (
 
 -- Borrowers Table
 CREATE TABLE Borrowers (
-	borrower_id INT AUTO_INCREMENT PRIMARY KEY,
+    borrower_id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50),
     middle_initial CHAR(1),
     last_name VARCHAR(50),
@@ -46,7 +46,7 @@ CREATE TABLE Borrowers (
 
 -- BorrowRecords Table
 CREATE TABLE BorrowRecords (
-	record_id INT AUTO_INCREMENT PRIMARY KEY,
+    record_id INT AUTO_INCREMENT PRIMARY KEY,
     book_id INT,
     date_borrowed DATE,
     date_expected_returned DATE,
