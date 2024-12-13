@@ -1069,7 +1069,7 @@ def top_books():
     # Get the selected month from the form (default is 0 for entire year)
     month = int(request.form.get("month", 0))
 
-    # SQL Query for top 5 most borrowed books
+    # SQL Query for top 10 most borrowed books
     if month == 0:
         # Query for entire 2024 (no month filter)
         query = """
@@ -1109,13 +1109,12 @@ def top_books():
     return render_template("topbookreports.html", top_books=top_books, month=month)
 
 
-# Route for Top 5 Borrowers
 @app.route("/top_borrowers", methods=["POST", "GET"])
 def top_borrowers():
     # Get the selected month from the form (default is 0 for entire year)
     month = int(request.form.get("month", 0))
 
-    # SQL Query for top 5 borrowers
+    # SQL Query for top 10 borrowers
     if month == 0:
         # Query for entire 2024 (no month filter)
         query = """
