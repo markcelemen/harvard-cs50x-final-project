@@ -30,8 +30,8 @@ CREATE TABLE Books (
     publisher_id INT,
     author_id INT,
     availability_status VARCHAR(20) DEFAULT 'Available',
-    FOREIGN KEY (publisher_id) REFERENCES Publishers(publisher_id),
-	FOREIGN KEY (author_id) REFERENCES Authors(author_id)
+    FOREIGN KEY (publisher_id) REFERENCES Publishers(publisher_id) ON DELETE SET NULL,
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id) ON DELETE SET NULL
 );
 
 -- Borrowers Table
@@ -53,8 +53,8 @@ CREATE TABLE BorrowRecords (
     date_actual_returned DATE,
     late_fees_collected DECIMAL(10,2) DEFAULT 0.00,
     borrower_id INT,
-    FOREIGN KEY (book_id) REFERENCES Books(book_id),
-    FOREIGN KEY (borrower_id) REFERENCES Borrowers(borrower_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id) ON DELETE SET NULL,
+    FOREIGN KEY (borrower_id) REFERENCES Borrowers(borrower_id) ON DELETE SET NULL
 );
 
 -- Junction Table: BorroweerOffenses
