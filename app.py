@@ -120,10 +120,10 @@ def publishers():
 
         # Check if all fields are empty
         if not publisher_id and not publisher_name and not address and not email_address and not mobile_no:
-            # If all fields are empty, show all authors
+            # If all fields are empty, show all publishers
             publishers = db.execute("SELECT * FROM Publishers")
         else:
-            # Query the database for authors based on the form data
+            # Query the database for publishers based on the form data
             query = "SELECT * FROM Publishers WHERE 1=1"
             params = []
 
@@ -246,7 +246,7 @@ def borrowers():
 
         # Check if all fields are empty
         if not borrower_id and not first_name and not middle_initial and not last_name and not email_address and not mobile_no:
-            # If all fields are empty, show all authors
+            # If all fields are empty, show all borrowers
             borrowers = db.execute("SELECT * FROM Borrowers")
         else:
             # Query the database for borrowers based on the form data
@@ -308,7 +308,7 @@ def borrowrecords():
 
         # Check if all fields are empty
         if not record_id and not book_id and not date_borrowed and not date_expected_returned and not date_actual_returned and not late_fees_collected and not borrower_id:
-            # If all fields are empty, show all authors
+            # If all fields are empty, show all borrow records
             borrowrecords = db.execute("SELECT * FROM BorrowRecords")
         else:
             # Query the database for borrow records based on the form data
@@ -382,10 +382,10 @@ def borroweroffenses():
 
         # Check if all fields are empty
         if not offense_id and not borrower_id and not offense_date and not offense_description:
-            # If all fields are empty, show all authors
+            # If all fields are empty, show all borrow offenses
             borroweroffenses = db.execute("SELECT * FROM BorrowerOffenses")
         else:
-            # Query the database for borrow records based on the form data
+            # Query the database for borrow offenses based on the form data
             query = "SELECT * FROM BorrowerOffenses WHERE 1=1"
             params = []
 
@@ -875,11 +875,11 @@ def add_borrowrecord():
         borrowrecords = db.execute("SELECT * FROM Borrowrecords")
         return render_template("borrowrecordtransactions.html", borrowrecords=borrowrecords, unique_book_ids=unique_book_ids, unique_borrower_ids=unique_borrower_ids, error="All fields are required!")
 
-    # Query the latest publisher_id
+    # Query the latest borrow record
     latest_borrowrecord = db.execute("SELECT MAX(record_id) AS max_id FROM Borrowerrecords")
     latest_id = latest_publisher[0]["max_id"] if latest_borrowrecord[0]["max_id"] else 0
 
-    # Assign the new publisher_id manually
+    # Assign the new record_id manually
     record_id = latest_id + 1
 
     # Add the borrow record to the database
@@ -906,7 +906,7 @@ def delete_borrowrecord():
         borrowrecords = db.execute("SELECT * FROM BorrowRecords")
         return render_template("borrowrecordtransactions.html", borrowrecords=borrowrecords, unique_book_ids=unique_book_ids, unique_borrower_ids=unique_borrower_ids, error="Record ID is required!")
 
-    # Delete the publisher from the database
+    # Delete the borrow record from the database
     db.execute("DELETE FROM BorrowRecords WHERE record_id = ?", record_id)
 
     # Fetch updated data for display
@@ -1002,7 +1002,7 @@ def add_borroweroffense():
 
 @app.route("/delete_borroweroffense", methods=["POST"])
 def delete_borroweroffense():
-    # Get the publisher from the form
+    # Get the borrower offense from the form
     offense_id = request.form.get("offense_id")
 
     # Get unique borrower_ids from borroweroffenses data
@@ -1146,3 +1146,4 @@ def top_borrowers():
 
     # Fetch updated data for display
     return render_template("topborrowerreports.html", top_borrowers=top_borrowers, month=month)
+
