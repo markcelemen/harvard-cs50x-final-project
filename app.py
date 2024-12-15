@@ -553,6 +553,11 @@ def update_author():
         query += " mobile_no = ?,"
         params.append(mobile_no)
 
+    # Check if there are any fields to update
+    if not params:
+        authors = db.execute("SELECT * FROM Authors")
+        return render_template("authortransactions.html", authors=authors, error="No fields to update!")
+
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE author_id = ?"
     params.append(author_id)
@@ -642,6 +647,11 @@ def update_publisher():
     if mobile_no:
         query += " mobile_no = ?,"
         params.append(mobile_no)
+
+    # Check if there are any fields to update
+    if not params:
+        publishers = db.execute("SELECT * FROM Publishers")
+        return render_template("publishertransactions.html", publishers=publishers, error="No fields to update!")
 
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE publisher_id = ?"
@@ -750,6 +760,11 @@ def update_book():
         query += " availability_status = ?,"
         params.append(availability_status)
 
+    # Check if there are any fields to update
+    if not params:
+        books = db.execute("SELECT * FROM Books")
+        return render_template("booktransactions.html", books=books, unique_author_ids=unique_author_ids, unique_publisher_ids=unique_publisher_ids, error="No fields to update!")
+
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE book_id = ?"
     params.append(book_id)
@@ -844,6 +859,11 @@ def update_borrower():
     if mobile_no:
         query += " mobile_no = ?,"
         params.append(mobile_no)
+
+    # Check if there are any fields to update
+    if not params:
+        borrowers = db.execute("SELECT * FROM Borrowers")
+        return render_template("borrowertransactions.html", borrowers=borrowers, error="No fields to update!")
 
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE borrower_id = ?"
@@ -957,6 +977,11 @@ def update_borrowrecord():
         query += " borrower_id = ?,"
         params.append(borrower_id)
 
+    # Check if there are any fields to update
+    if not params:
+        borrowrecords = db.execute("SELECT * FROM BorrowRecords")
+        return render_template("borrowrecordtransactions.html", borrowrecords=borrowrecords, unique_book_ids=unique_book_ids, unique_borrower_ids=unique_borrower_ids, error="No fields to update!")
+
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE record_id = ?"
     params.append(record_id)
@@ -1050,6 +1075,11 @@ def update_borroweroffense():
     if offense_description:
         query += " offense_description = ?,"
         params.append(offense_description)
+
+    # Check if there are any fields to update
+    if not params:
+        borroweroffenses = db.execute("SELECT * FROM BorrowerOffenses")
+        return render_template("borroweroffensetransactions.html", borroweroffenses=borroweroffenses, unique_borrower_ids=unique_borrower_ids, error="No fields to update!")
 
     # Remove the trailing comma and add the WHERE clause
     query = query.rstrip(",") + " WHERE offense_id = ?"
