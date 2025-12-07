@@ -2,7 +2,7 @@
 #### Video Demo: https://youtu.be/Pr_r5xuD_Fs
 
 #### Description:
-Hello, my name is **Mark Edrian D. Celemen**, and this is my final project for CS50x, titled **Library Management System**. This project is a simulation designed to demonstrate the core functionalities of a library management system, including tracking books, authors, publishers, borrowers, and borrowing records. It showcases how such a system could work in a controlled environment, providing an interactive learning experience.
+Hi, I'm **Mark**, and this is my final project for Harvard CS50x, titled **Library Management System**. This project is a simulation designed to demonstrate the core functionalities of a library management system, including tracking books, authors, publishers, borrowers, and borrowing records. It showcases how such a system could work in a controlled environment, providing an interactive learning experience.
 
 The system allows users to perform operations such as adding, updating, and deleting records, as well as generating basic reports. While the application simulates a library's processes, it is not intended for actual use by library staff or institutions. Instead, it serves as a project to demonstrate database design, web development, and programming skills. The project is implemented in Python using the **Flask** framework and runs on the CS50x IDE.
 
